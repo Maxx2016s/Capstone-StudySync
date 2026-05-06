@@ -23,12 +23,14 @@ function Timer() {
   };
 
   return (
-    <div>
-      <h3>{formatTime()}</h3>
+    <div className="timer-container">
+      <div className="timer-display">{formatTime()}</div>
 
-      <button onClick={() => setRunning(true)}>Start</button>
-      <button onClick={() => setRunning(false)}>Pause</button>
-      <button onClick={() => setSeconds(1500)}>Reset</button>
+      <div className="timer-controls">
+        <button className="btn-start" onClick={() => setRunning(true)}>Start</button>
+        <button className="btn-pause" onClick={() => setRunning(false)}>Pause</button>
+        <button className="btn-reset" onClick={() => setSeconds(1500)}>Reset</button>
+      </div>
     </div>
   );
 }
