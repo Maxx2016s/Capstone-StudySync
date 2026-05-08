@@ -1,11 +1,28 @@
-import Timer from "../components/Timer.jsx";
+import Timer from "../components/Timer";
 
-function TimerPage() {
+function TimerPage({
+  timeLeft,
+  setTimeLeft,
+  isRunning,
+  setIsRunning,
+}) {
+
   return (
     <div className="timer-page">
-      <h2>POMODORO TIMER</h2>
-      <p className="timer-subtitle">Focus for 25 minutes, then take a break</p>
-      <Timer />
+
+      <h1>Pomodoro Timer</h1>
+
+      <p className="timer-subtitle">
+        Stay focused for 25 minutes.
+      </p>
+
+      <Timer
+        timeLeft={timeLeft}
+        setTimeLeft={setTimeLeft}
+        isRunning={isRunning}
+        setIsRunning={setIsRunning}
+      />
+
     </div>
   );
 }

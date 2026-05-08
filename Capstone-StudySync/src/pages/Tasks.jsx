@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import TaskInput from "../components/TaskInput";
 import TaskList from "../components/TaskList";
 
-function Tasks() {
-  const [tasks, setTasks] = useState(() => {
-    const saved = localStorage.getItem("tasks");
-    return saved ? JSON.parse(saved) : [];
-  });
+function Tasks({ tasks, setTasks }) {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));

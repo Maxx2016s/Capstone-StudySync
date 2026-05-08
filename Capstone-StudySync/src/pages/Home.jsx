@@ -1,83 +1,118 @@
 import { Link } from "react-router-dom";
 
-function Home() {
+function Home({
+  tasks,
+  timeLeft,
+  isRunning,
+  setIsRunning,
+}) {
+  const totalTasks = tasks.length;
+
+  const completedTasks = tasks.filter(
+    (task) => task.completed
+  ).length;
+
+  const pendingTasks = totalTasks - completedTasks;
+
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+
+  const formattedTime = `${minutes}:${seconds < 10 ? "0" : ""
+    }${seconds}`;
   return (
     <div className="home-container">
-      <div className="hero-section">
+
+      {/* HERO */}
+      <section className="hero-section">
         <div className="hero-content">
-          <h1>Welcome To STUDYSync 📚</h1>
-          <p>Plan your studies, manage tasks, and stay focused.</p>
+          <h1>Welcome Back</h1>
+          <p>Stay productive and keep your momentum going.</p>
         </div>
-        
-      </div>
-      <br></br>
-        <hr></hr>
+      </section>
 
-      <div className="features-section">
-        <h2>Features</h2>
+      <section className="dashboard-grid">
 
-        <div className="features-grid">
-          <Link to="/tasks" style={{ textDecoration: "none" }}>
-            <div className="feature-card">
-              <h3>✅ Tasks</h3>
-              <p>Manage your study tasks</p>
-            </div>
-          </Link>
+        {/* TASK STATS */}
 
-          <Link to="/timer" style={{ textDecoration: "none" }}>
-            <div className="feature-card">
-              <h3>⏱️ Timer</h3>
-              <p>Pomodoro focus sessions</p>
-            </div>
-          </Link>
-
-          <Link to="/track" style={{ textDecoration: "none" }}>
-            <div className="feature-card">
-              <h3>📊 Track</h3>
-              <p>Monitor your progress</p>
-            </div>
-          </Link>
-        </div>
-        <br></br><br></br>
-        <hr></hr>
-      </div>
-
-      <div className="benefits-section">
-        <h2>Why Choose StudySync?</h2>
-
-        <div className="benefits-grid">
-          <div className="benefit-item">
-            <h3>🎯 Stay Focused</h3>
-            <p>Use the Pomodoro technique to maintain focus</p>
-          </div>
-
-          <div className="benefit-item">
-            <h3>📈 Track Progress</h3>
-            <p>See your improvements over time</p>
-          </div>
-
-          <div className="benefit-item">
-            <h3>⚡ Get Productive</h3>
-            <p>Achieve more with better organization</p>
+        <div className="track-card">
+          <h3>Total Tasks</h3>
+          <div className="track-number">
+            {totalTasks}
           </div>
         </div>
-        <br></br><br></br>
-        <hr></hr>
-      </div>
 
-      <div className="cta-section">
-        <h2>Get Started</h2>
-
-        <div className="cta-buttons">
-          <a href="/tasks" className="cta-button primary">
-            View Tasks
-          </a>
-
-          <a href="/timer" className="cta-button secondary">
-            Start Timer
-          </a>
+        <div className="track-card">
+          <h3>Completed</h3>
+          <div className="track-number">
+            {completedTasks}
+          </div>
         </div>
-      </div>
+
+        <div className="track-card">
+          <h3>Pending</h3>
+          <div className="track-number">
+            {pendingTasks}
+          </div>
+        </div>
+
+        {/* TIMER */}
+
+        <div className="timer-home-card">
+          <h3>Pomodoro Timer</h3>
+
+          <div className="home-timer-display">
+            {formattedTime}
+          </div>
+
+          <button
+            className="btn-start"
+            onClick={() => setIsRunning(!isRunning)}
+          >
+            {isRunning ? "Pause" : "Start"}
+          </button>
+        </div>
+
+      </section>
+
+      {/* RECENT TASKS */}
+      <section className="card">
+        <div className="section-header">
+          <h2>Recent Tasks</h2>
+        </div>
+
+        {tasks.length === 0 ? (
+          <div className="empty-state">
+            No tasks added yet.
+          </div>
+        ) : (
+          tasks.slice(0, 5).map((task, index) => (
+            <div className="recent-task" key={index}>
+
+              <span
+                className={
+                  task.completed
+                    ? "completed-task"
+                    : "task-text"
+                }
+              >
+                {task.text}
+              </span>
+
+              <span
+                className={
+                  task.completed
+                    ? "completed"
+                    : "pending"
+                }
+              >
+                {task.completed ? "Done" : "Pending"}
+              </span>
+
+            </div>
+          ))
+        )}
+      </section>
+
     </div>
   );
 }
