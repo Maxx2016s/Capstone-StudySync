@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import Tasks from "./pages/Tasks";
 import TimerPage from "./pages/TimerPage";
+import Track from "./pages/Track";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/tasks">Tasks</Link>
           <Link to="/timer">Timer</Link>
+          <Link to="/track">Track</Link>
         </div>
       </nav>
 
@@ -24,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/timer" element={<TimerPage />} />
+          <Route path="/track" element={<Track />} />
         </Routes>
       </div>
     </div>
