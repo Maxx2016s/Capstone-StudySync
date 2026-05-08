@@ -1,31 +1,91 @@
 # StudySync
 
 ## Project Overview
-StudySync is a smart student productivity platform designed to help students manage their academic life efficiently. It provides tools such as study planning, expense tracking, notes organization, and productivity utilities through a clean and user-friendly interface.
+
+StudySync is a modern student productivity platform designed to help students manage their academic workflow efficiently through a clean, interactive, and user-friendly dashboard.
+
+The platform combines task management, productivity tracking, and focus tools into a single centralized application that helps students stay organized and consistent with their studies.
 
 ---
 
 ## Features
 
-### Study Planner
-- Create daily and weekly study schedules
-- Track completed tasks
-- Organize subjects and deadlines
+### Dashboard Homepage
+- Centralized productivity dashboard
+- Quick access to all tools
+- Live timer preview
+- Recent tasks section
 
 ### Task Management
-- Add, edit, and delete tasks
+- Add tasks dynamically
 - Mark tasks as completed
-- Set priorities for important tasks
+- Delete tasks
+- Track pending and completed work in real time
 
-### Expense Tracker
-- Record daily expenses
-- View total expenses summary
+### Pomodoro Timer
+- 25-minute focus timer
+- Start, pause, and reset functionality
+- Live synchronized timer across pages
 
+### Progress Tracking
+- Displays:
+  - Total tasks
+  - Completed tasks
+  - Pending tasks
+- Automatically updates based on task activity
+
+### Theme Support
+- Dark mode by default
+- Light/Dark mode toggle
+- Responsive modern interface
 
 ---
 
 ## Tech Stack
-- HTML
-- CSS
-- React
+
+- React.js
 - JavaScript
+- HTML5
+- CSS3
+- React Router DOM
+- Vite
+
+---
+
+## Project Structure
+
+```bash
+src/
+├── assets/
+│
+├── components/
+│   ├── TaskInput.jsx
+│   ├── TaskList.jsx
+│   └── Timer.jsx
+│
+├── pages/
+│   ├── Home.jsx
+│   ├── Tasks.jsx
+│   ├── TimerPage.jsx
+│   └── Track.jsx
+│
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+---
+
+## Future Improvements
+
+- Notes section
+- Calendar integration
+- Study analytics and graphs
+- User authentication
+
+---
+
+## Objective
+
+The objective of StudySync is to provide students with a centralized productivity platform that simplifies academic planning, improves focus, and encourages consistent study habits through an intuitive dashboard experience.
