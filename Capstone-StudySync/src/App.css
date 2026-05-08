@@ -117,6 +117,90 @@ button:active {
 }
 
 
+/* Task List Styling */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+li span {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-complete,
+.btn-delete {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.btn-complete {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-complete:hover {
+  background: #45a049;
+}
+
+.btn-delete {
+  background: #f44336;
+  color: white;
+}
+
+.btn-delete:hover {
+  background: #da190b;
+}
+
+form {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+form button {
+  padding: 10px 20px;
+}
+
+
 /* home */
 .home-container {
   display: flex;
@@ -274,7 +358,7 @@ button:active {
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #667eea;
+  color: #fd9696;
   margin: 0;
 }
 
@@ -483,5 +567,34 @@ button:active {
 
   .stat-number {
     font-size: 2rem;
+  }
+
+  /* Task List Mobile */
+  form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  form input {
+    padding: 12px 10px;
+  }
+
+  form button {
+    padding: 10px 16px;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .task-buttons {
+    width: 100%;
+  }
+
+  .btn-complete,
+  .btn-delete {
+    flex: 1;
   }
 }

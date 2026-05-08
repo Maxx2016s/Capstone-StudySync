@@ -4,16 +4,28 @@ function TaskList({ tasks, toggleTask, deleteTask }) {
       {tasks.map((task, index) => (
         <li key={index}>
           <span
-            onClick={() => toggleTask(index)}
             style={{
               textDecoration: task.completed ? "line-through" : "none",
-              cursor: "pointer",
+              color: task.completed ? "#999" : "#2c2c2c",
             }}
           >
             {task.text}
           </span>
 
-          <button onClick={() => deleteTask(index)}>Delete</button>
+          <div className="task-buttons">
+            <button 
+              className="btn-complete"
+              onClick={() => toggleTask(index)}
+            >
+              {task.completed ? "Undo" : "Complete"}
+            </button>
+            <button 
+              className="btn-delete"
+              onClick={() => deleteTask(index)}
+            >
+              Delete
+            </button>
+          </div>
         </li>
       ))}
     </ul>
