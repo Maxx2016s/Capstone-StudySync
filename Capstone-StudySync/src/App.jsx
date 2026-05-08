@@ -13,10 +13,10 @@ function App() {
         <h1>StudySync</h1>
 
         <div className="links">
-          <Link to="/">Home</Link>
-          <Link to="/tasks">Tasks</Link>
-          <Link to="/timer">Timer</Link>
-          <Link to="/track">Track</Link>
+          <Link to="/">HOME</Link>
+          <Link to="/tasks">TASKS</Link>
+          <Link to="/timer">TIMER</Link>
+          <Link to="/track">TRACK</Link>
         </div>
       </nav>
 
